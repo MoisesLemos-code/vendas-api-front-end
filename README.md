@@ -13,14 +13,14 @@
 
 
 
-<img src="/images/Menu.jpg" width="300" height="400" />
+<img src="/images/Menu.jpg" width="400" height="600" />
 *Captura de tela do menu inicial*
 
-<img src="/images/Cliente.jpg" width="300" height="400" />
+<img src="/images/Cliente.jpg" width="400" height="600" />
 *Captura de tela do cadastro de cliente*
 
-<img src="/images/Cliente_lista.jpg" width="300" height="400" />
+<img src="/images/Cliente_lista.jpg" width="400" height="600" />
 *Captura de tela da lista de clientes*
 
-<img src="/images/Cliente_lista_modal.jpg" width="300" height="400" />
+<img src="/images/Cliente_lista_modal.jpg" width="400" height="600" />
 *Captura de tela do modal para edição e exclusão do cadastro selecionado*
