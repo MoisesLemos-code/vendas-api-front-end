@@ -13,14 +13,14 @@
 
 
 
-![](/images/Menu.jpg | width=200 height=400)
+<img src="/images/Menu.jpg" width="300" height="400" />
 *Captura de tela do menu inicial*
 
-![](/images/Cliente.jpg)
+<img src="/images/Cliente.jpg" width="300" height="400" />
 *Captura de tela do cadastro de cliente*
 
-![](/images/Cliente_lista.jpg)
+<img src="/images/Cliente_lista.jpg" width="300" height="400" />
 *Captura de tela da lista de clientes*
 
-![](/images/Cliente_lista_modal.jpg)
+<img src="/images/Cliente_lista_modal.jpg" width="300" height="400" />
 *Captura de tela do modal para edição e exclusão do cadastro selecionado*
