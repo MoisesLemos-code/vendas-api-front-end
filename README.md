@@ -12,7 +12,8 @@
 - [ ] CRUD de venda
 
 
-![](/images/Menu.jpg =100x20)
+
+![](/images/Menu.jpg | width=200 height=400)
 *Captura de tela do menu inicial*
 
 ![](/images/Cliente.jpg)
