@@ -4,12 +4,12 @@
 
 
 ### Checklist
--[x] Expo
--[x] React-Navigation
--[x] Axios
--[x] CRUD de cliente
--[ ] CRUD de produto
--[ ] CRUD de venda
+- [x] Expo
+- [x] React-Navigation
+- [x] Axios
+- [x] CRUD de cliente
+- [ ] CRUD de produto
+- [ ] CRUD de venda
 
 
 ![](/images/Menu.jpg)
