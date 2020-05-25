@@ -1,4 +1,4 @@
-# mercado-api-front-end
+# vendas-api-front-end
 
 ## Front-end de aplicação em React-Native consumindo a API do projeto [Template-02](https://github.com/MoisesLemos-code/Template-02-API-REST-Nodejs)
 ### Atenção: Ajustar a URL base do axios na aplicação front-end, a mesma deve ser o IP atual da sua máquina e não o "localhost".
