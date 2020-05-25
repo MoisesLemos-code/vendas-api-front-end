@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
-  View, ScrollView, FlatList, Text, StyleSheet,
-  TouchableOpacity, TextInput
+  View, FlatList, StyleSheet,
 } from 'react-native'
 import api from "../../services/api"
 
@@ -9,25 +8,35 @@ import CardCliente from '../../components/CardCliente'
 
 export default class Cliente extends Component {
 
-  dados = [
-    { id: 1, nome: 'Moisés Lemos dos Santos', endereco: 'Na minha rua no meu numero', email: 'moisesTeste@outlook.com' },
-    { id: 2, nome: 'Maria Carolina', endereco: 'irineu', email: 'moisesTeste@outlook.com' },
-    { id: 3, nome: 'Daniel Alves', endereco: 'você não sabe nem eu', email: 'moisesTeste@outlook.com' },
-    { id: 4, nome: 'RoDOLfo', endereco: 'sla vei coloca qualquer coisa ai', email: 'moisesTeste@outlook.com' },
-    { id: 5, nome: 'Lilian Kelly', endereco: 'é aqui que tira o auxilio emergencial?', email: 'moisesTeste@outlook.com' },
-    { id: 6, nome: 'Preciso dormir', endereco: 'to puto', email: 'moisesTeste@outlook.com' },
-    { id: 7, nome: 'a mimir', endereco: 'mimindo', email: 'moisesTeste@outlook.com' },
-    { id: 8, nome: 'a', endereco: 'a', email: 'a' },
-  ]
+  _isMounted = false;
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      list: []
+    }
+    this.updateList = this.updateList.bind(this);
+  }
 
   componentDidMount = async () => {
+    this._isMounted = true;
     try {
-      await api.get(`/cliente/list/`)
-        .then(res => {
-          const nameList = res.data;
-          this.setState({ nameList });
-        });
+      const response = await api.get(`/cliente/list`);
+      this.setState({ list: response.data });
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
+
+  updateList = async () => {
+    try {
+      const response = await api.get(`/cliente/list`);
+      this.setState({ list: response.data });
+      console.log("teste lista")
     } catch (err) {
       console.log(err)
     }
@@ -38,10 +47,13 @@ export default class Cliente extends Component {
       <View style={styles.container}>
         <FlatList
           contentContainerStyle={styles.listView}
-          data={this.dados}
+          data={this.state.list}
+          keyExtractor={(item, index) => index.toString()}
           renderItem={
-            ({ item, index }) => <CardCliente key={index}
-              item={item} />
+            ({ item }) => <CardCliente
+              item={item}
+              onChange={this.updateList}
+            />
           }
         />
       </View>

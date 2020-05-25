@@ -14,15 +14,33 @@ import ModalCard from './modalCard'
 export default class CardCliente extends Component {
 
   state = {
-    modalVisible: false
+    modalVisible: false,
+    item: {}
   };
+
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.setState({
+      modalVisible: false,
+      item: this.props.item
+    })
+  }
 
   setModalVisible = (visible) => {
     this.setState({ modalVisible: visible });
   }
 
-  constructor(props) {
-    super(props);
+  updateItem = item => {
+    this.setState({ modalVisible: false, item: item })
+    this.props.onChange();
+  }
+
+  deleteItem = () => {
+    this.setState({ modalVisible: false })
+    this.props.onChange();
   }
 
   render() {
@@ -44,18 +62,18 @@ export default class CardCliente extends Component {
               >
                 <FontAwesome5 name={'times-circle'} size={25} color={'#353434'} />
               </TouchableHighlight>
-              <ModalCard item={this.props.item} />
+              <ModalCard item={this.state.item} updateItem={this.updateItem} deleteItem={this.deleteItem} />
             </View>
           </View>
         </Modal>
         <View style={styles.picture}></View>
         <View style={styles.containerBody}>
           <Text style={styles.textHead}>Nome</Text>
-          <Text style={styles.textInfo}>{this.props.item.nome}</Text>
+          <Text style={styles.textInfo}>{this.state.item.nome}</Text>
           <Text style={styles.textHead}>Endereco</Text>
-          <Text style={styles.textInfo}>{this.props.item.endereco}</Text>
+          <Text style={styles.textInfo}>{this.state.item.endereco}</Text>
           <Text style={styles.textHead}>Email</Text>
-          <Text style={styles.textInfo}>{this.props.item.email}</Text>
+          <Text style={styles.textInfo}>{this.state.item.email}</Text>
         </View>
         <TouchableHighlight
           style={styles.openButton}

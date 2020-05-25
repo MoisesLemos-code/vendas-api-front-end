@@ -33,6 +33,11 @@ export default function Cliente({ }) {
           ],
           { cancelable: false }
         )
+        setUser({
+          nome: '',
+          endereco: '',
+          email: ''
+        })
       }
     }
     catch (err) {

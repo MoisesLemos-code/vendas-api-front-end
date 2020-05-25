@@ -42,6 +42,7 @@ export default class ModalCard extends Component {
             'Content-Type': 'application/json',
           }
         });
+        this.props.updateItem(this.state)
       }
     }
     catch (err) {
@@ -57,9 +58,10 @@ export default class ModalCard extends Component {
     }
   }
 
-  async excluirCliente() {
+  excluirCliente = async () => {
     try {
       await api.delete(`/cliente/delete/${this.state.id}`);
+      this.props.deleteItem()
     } catch (err) {
       console.log(err)
       Alert.alert(
